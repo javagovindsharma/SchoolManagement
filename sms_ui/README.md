@@ -1,46 +1,97 @@
-# Getting Started with Create React App
+# 🏫 School Website Design | Web Wizards - Projections 2026 🎨 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="/public/govind.png" alt="Image description" width="800" height="400">
 
-## Available Scripts
+## 🌟 To Run Project 
+    npm run dev
+## 🌟 About the Project  
+This project was created as part of **Projections 2026**, the annual tech fest of my college. I participated in the **Web Wizards** event, where the challenge was to design an **individual website for a school**. The goal was to build an intuitive, visually stunning, and fully responsive **frontend design**.  
 
-In the project directory, you can run:
+🔗 **Live Preview:** [School Website](localhost:4200)  
 
-### `npm start`
+## 🎯 Key Features  
+✅ **Hero Section with Smooth Animations** - Engaging intro for an immersive experience  
+✅ **Modern UI/UX Design** - Clean, aesthetic, and user-friendly  
+✅ **Mobile-Friendly & Responsive** - Optimized for all screen sizes  
+✅ **Fast Performance** - Lightweight and highly optimized  
+✅ **Easy Navigation** - User-friendly menu for better accessibility  
+✅ **Colorful Gradient Transitions** - Enhancing the design with appealing effects  
+✅ **School Highlights Section** - Showcasing academics, extracurriculars, and admission info  
+✅ **Gallery Section** - Interactive image grid displaying school life  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🎨 Color Palette  
+The website follows a modern and professional **color scheme** with balanced contrasts and smooth gradients.  
 
-### `npm test`
+- **Primary Colors:**  
+  🎨 **Jet (#3A3335)** – Dark, strong base color  
+  🎨 **Ash Gray (#C6D8D3)** – Soft, neutral background  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Accent Colors:**  
+  🔴 **Raspberry (#D81E5B)** – Vibrant for buttons and highlights  
+  🟠 **Vermilion (#F0544F)** – Warm and energetic contrast  
+  🎗 **Papaya Whip (#FDF0D5)** – Light, airy background/section divider  
 
-### `npm run build`
+- **Gradient Suggestion:**  
+  ✅ **Raspberry → Vermilion → Papaya Whip** - Smooth, energetic background transitions  
+  ✅ **Ash Gray → Jet** - Sleek, modern feel for dark mode elements  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⚙️ Tech Stack  
+This project was built using modern frontend technologies to ensure **scalability, performance, and a great user experience**.  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🚀 **Frontend Development**  
+- ⚛ **React.js** - Component-based UI development  
+- 🌀 **Vite** - Fast and optimized development environment  
+- 📜 **TypeScript** - Type safety and better code maintainability  
+- 📄 **HTML5** - Semantic structure  
+- 🎨 **CSS3** - Styling and layout design  
+- 🎭 **Framer Motion** - Smooth animations  
+- 🎭 **Tailwind CSS** - Utility-first styling  
 
-### `npm run eject`
+🔧 **Other Technologies & Tools**  
+- 🌎 **Netlify** - Hosting and deployment  
+- 🛠 **ESLint & Prettier** - Code formatting and linting  
+- 🔍 **SEO Optimization** - Meta tags and performance improvements  
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🏆 Event & Participation  
+This project was built as part of **Projections 2025**, my college’s annual tech fest. I participated in the **Web Wizards** event, where the challenge was to **design a complete school website** with a focus on UI/UX.  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+🎭 **Event:** Web Wizards - Projections 2025  
+🏛 **College Tech Fest:** Projections 2025  
+🎨 **Task:** Build a stunning **frontend design** for a school website  
+🛠 **Category:** Web Design & Development  
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+## 📢 Socials & Updates  
+🔗 **LinkedIn Post:** [Projections 2025 Event](https://www.linkedin.com/in/govindsrm/)  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+
+## 💡 Future Enhancements  
+While this is a **frontend-only design**, here are some future improvements that can be added:  
+🔹 **Convert to Full-Stack** - Implement backend with Node.js & Firebase  
+🔹 **Dynamic News & Announcements** - Fetch latest updates from a database  
+🔹 **Student & Teacher Login** - Authentication system for different user roles  
+🔹 **Interactive Contact Form** - Integrated with email notifications  
+🔹 **Accessibility Improvements** - Better support for screen readers and contrast adjustments  
+
+---
+
+## 🎯 Conclusion
+This project was an exciting experience in designing a real-world school website. Web Wizards was a great opportunity to push my UI/UX skills, work with modern web tools, and create a professional-level design. I hope you find this project interesting! Feel free to ⭐ star this repository and contribute to future improvements. 🚀
+
+---
+
+## 🤝 Connect With Me
+
+**Linkedin:** [Profile](https://www.linkedin.com/in/govindsrm/)
+---
+
+## 📌 If you like this project, don't forget to ⭐ star the repo! 😊
