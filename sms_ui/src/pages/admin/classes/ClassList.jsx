@@ -6,11 +6,25 @@ import { useLanguage } from '../../../context/LanguageContext';
 export default function ClassList() {
   const { t } = useLanguage();
   const [classes, setClasses] = useState([]);
+  const [studentCounts, setStudentCounts] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    API.get('/classes')
-      .then(res => setClasses(res.data))
+    Promise.all([
+      API.get('/classes'),
+      API.get('/students')
+    ])
+      .then(([classesRes, studentsRes]) => {
+        setClasses(classesRes.data);
+        
+        // Count students by class
+        const counts = {};
+        studentsRes.data.forEach(student => {
+          const classKey = student.class || student.className;
+          counts[classKey] = (counts[classKey] || 0) + 1;
+        });
+        setStudentCounts(counts);
+      })
       .catch(console.error)
       .finally(() => setLoading(false));
   }, []);
@@ -36,6 +50,7 @@ export default function ClassList() {
                 <th>Section</th>
                 <th>{t('teachers')}</th>
                 <th>{t('students')}</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -45,12 +60,17 @@ export default function ClassList() {
                   <td><strong>{c.className}</strong></td>
                   <td><span className="badge badge-blue">{c.section}</span></td>
                   <td>{c.teacherName || 'N/A'}</td>
-                  <td><span className="badge badge-green">{c.studentCount}</span></td>
+                  <td><span className="badge badge-green">{studentCounts[c.className] || 0}</span></td>
+                  <td>
+                    <Link to={`/admin/classes/edit/${c.id}`} className="btn btn-sm btn-primary">
+                      ✏️ Edit
+                    </Link>
+                  </td>
                 </tr>
               ))}
               {classes.length === 0 && (
                 <tr>
-                  <td colSpan="5" className="text-center" style={{ padding: '30px', color: '#94a3b8' }}>
+                  <td colSpan="6" className="text-center" style={{ padding: '30px', color: '#94a3b8' }}>
                     No classes found.
                   </td>
                 </tr>

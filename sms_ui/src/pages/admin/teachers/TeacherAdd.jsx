@@ -9,10 +9,11 @@ export default function TeacherAdd() {
   const { t } = useLanguage();
 
   const [form, setForm] = useState({
-    fullName: '', email: '', password: '', phone: '',
+    name: '', email: '', password: '', phone: '',
     gender: '', subject: '', address: '', status: 'Active',
   });
 
+  const [teachers, setTeachers] = useState([]);
   const [subjects, setSubjects] = useState([]);
   const [success,  setSuccess]  = useState(false);
   const [error,    setError]    = useState('');
@@ -22,6 +23,10 @@ export default function TeacherAdd() {
     API.get('/teachers/subjects')
       .then(res => setSubjects(res.data))
       .catch(() => setSubjects([]));
+
+    API.get('/teachers')
+      .then(res => setTeachers(res.data))
+      .catch(() => setTeachers([]));
   }, []);
 
   const update = (field, value) => setForm(prev => ({ ...prev, [field]: value }));
@@ -35,7 +40,7 @@ export default function TeacherAdd() {
     setLoading(true); setError('');
     try {
       await API.post('/teachers/with-account', {
-        fullName: form.fullName, email: form.email, password: form.password,
+        fullName: form.name, email: form.email, password: form.password,
         phone: form.phone, gender: form.gender,
         subject: form.subject, address: form.address, status: form.status,
       });
@@ -63,8 +68,14 @@ export default function TeacherAdd() {
 
             <div className="form-group">
               <label>Full Name *</label>
-              <input required placeholder="Mr. Sunil Perera" value={form.fullName}
-                onChange={e => update('fullName', e.target.value)} />
+              <select required value={form.name} onChange={e => update('name', e.target.value)}>
+                <option value="">Select Teacher Name</option>
+                {teachers.map(teacher => (
+                  <option key={teacher.id} value={teacher.name || teacher.name}>
+                    {teacher.name || teacher.name}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <div className="form-group">

@@ -14,6 +14,7 @@ import TeacherList    from './pages/admin/teachers/TeacherList';
 import TeacherAdd     from './pages/admin/teachers/TeacherAdd';
 import ClassList      from './pages/admin/classes/ClassList';
 import ClassAdd       from './pages/admin/classes/ClassAdd';
+import ClassEdit      from './pages/admin/classes/ClassEdit';
 import SubjectList    from './pages/admin/subjects/SubjectList';
 import Announcements  from './pages/admin/announcements/Announcements';
 import Reports        from './pages/admin/reports/Reports';
@@ -74,6 +75,7 @@ export default function App() {
           <Route path="/admin/teachers/add"  element={<AdminRoute><TeacherAdd /></AdminRoute>} />
           <Route path="/admin/classes"       element={<AdminRoute><ClassList /></AdminRoute>} />
           <Route path="/admin/classes/add"   element={<AdminRoute><ClassAdd /></AdminRoute>} />
+          <Route path="/admin/classes/edit/:id" element={<AdminRoute><ClassEdit /></AdminRoute>} />
           <Route path="/admin/subjects"      element={<AdminRoute><SubjectList /></AdminRoute>} />
           <Route path="/admin/announcements" element={<AdminRoute><Announcements /></AdminRoute>} />
           <Route path="/admin/reports"       element={<AdminRoute><Reports /></AdminRoute>} />

@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import API from '../../../api/axios';
 import { useLanguage } from '../../../context/LanguageContext';
 
-export default function ClassAdd() {
+export default function ClassEdit() {
   const navigate = useNavigate();
+  const { id } = useParams();
   const { t } = useLanguage();
 
   const [form, setForm] = useState({
@@ -14,15 +15,22 @@ export default function ClassAdd() {
     description: '',
   });
   const [teachers, setTeachers] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(() => {
+    // Fetch teachers
     API.get('/teachers')
       .then(res => setTeachers(res.data))
       .catch(() => setTeachers([]));
-  }, []);
+
+    // Fetch class details
+    API.get(`/classes/${id}`)
+      .then(res => setForm(res.data))
+      .catch(err => setError(err.response?.data?.message || 'Failed to fetch class.'))
+      .finally(() => setLoading(false));
+  }, [id]);
 
   const update = (field, value) => setForm(prev => ({ ...prev, [field]: value }));
 
@@ -36,7 +44,7 @@ export default function ClassAdd() {
     setLoading(true);
     setError('');
     try {
-      await API.post('/classes', {
+      await API.put(`/classes/${id}`, {
         className: form.className,
         section: form.section,
         teacherId: form.teacherId || null,
@@ -45,16 +53,20 @@ export default function ClassAdd() {
       setSuccess(true);
       setTimeout(() => navigate('/admin/classes'), 1500);
     } catch (err) {
-      setError(err.response?.data?.message || 'Failed to add class.');
+      setError(err.response?.data?.message || 'Failed to update class.');
     } finally {
       setLoading(false);
     }
   };
 
+  if (loading && !form.className) {
+    return <div className="card text-center"><p>Loading...</p></div>;
+  }
+
   return (
     <div>
       <div className="page-header">
-        <h1>➕ {t('addClassTitle') || 'Add Class'}</h1>
+        <h1>✏️ {t('editClassTitle') || 'Edit Class'}</h1>
         <button className="btn btn-outline" onClick={() => navigate('/admin/classes')}>
           ← Back
         </button>
@@ -62,7 +74,7 @@ export default function ClassAdd() {
 
       {success && (
         <div className="alert alert-success">
-          ✅ Class added successfully! Redirecting to classes...
+          ✅ Class updated successfully! Redirecting to classes...
         </div>
       )}
       {error && <div className="alert alert-error">❌ {error}</div>}
@@ -138,7 +150,7 @@ export default function ClassAdd() {
 
           <div style={{ display: 'flex', gap: '12px', marginTop: '16px' }}>
             <button type="submit" className="btn btn-primary btn-lg" disabled={loading}>
-              {loading ? '⏳ Saving...' : '💾 Save Class'}
+              {loading ? '⏳ Saving...' : '💾 Save Changes'}
             </button>
             <button type="button" className="btn btn-outline" onClick={() => navigate('/admin/classes')}>
               Cancel
