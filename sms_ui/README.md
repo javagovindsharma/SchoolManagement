@@ -1,97 +1,290 @@
-# 🏫 School Website Design | Web Wizards - Projections 2026 🎨 
+# 🎓 Cloud-Based School Management System
 
-<img src="/public/govind.png" alt="Image description" width="800" height="400">
-
-## 🌟 To Run Project 
-    npm run dev
-## 🌟 About the Project  
-This project was created as part of **Projections 2026**, the annual tech fest of my college. I participated in the **Web Wizards** event, where the challenge was to design an **individual website for a school**. The goal was to build an intuitive, visually stunning, and fully responsive **frontend design**.  
-
-🔗 **Live Preview:** [School Website](localhost:4200)  
-
-## 🎯 Key Features  
-✅ **Hero Section with Smooth Animations** - Engaging intro for an immersive experience  
-✅ **Modern UI/UX Design** - Clean, aesthetic, and user-friendly  
-✅ **Mobile-Friendly & Responsive** - Optimized for all screen sizes  
-✅ **Fast Performance** - Lightweight and highly optimized  
-✅ **Easy Navigation** - User-friendly menu for better accessibility  
-✅ **Colorful Gradient Transitions** - Enhancing the design with appealing effects  
-✅ **School Highlights Section** - Showcasing academics, extracurriculars, and admission info  
-✅ **Gallery Section** - Interactive image grid displaying school life  
+A modern full-stack web application designed to automate and digitize school academic and administrative operations through a secure cloud-based platform.
 
 ---
 
-## 🎨 Color Palette  
-The website follows a modern and professional **color scheme** with balanced contrasts and smooth gradients.  
+## 📖 Project Overview
 
-- **Primary Colors:**  
-  🎨 **Jet (#3A3335)** – Dark, strong base color  
-  🎨 **Ash Gray (#C6D8D3)** – Soft, neutral background  
+The **Cloud-Based School Management System** helps schools manage students, teachers, attendance, marks, grades, requests, announcements, reports, and analytics from one centralized online system.
 
-- **Accent Colors:**  
-  🔴 **Raspberry (#D81E5B)** – Vibrant for buttons and highlights  
-  🟠 **Vermilion (#F0544F)** – Warm and energetic contrast  
-  🎗 **Papaya Whip (#FDF0D5)** – Light, airy background/section divider  
-
-- **Gradient Suggestion:**  
-  ✅ **Raspberry → Vermilion → Papaya Whip** - Smooth, energetic background transitions  
-  ✅ **Ash Gray → Jet** - Sleek, modern feel for dark mode elements  
+This project is developed as an internship project using **React.js**, **ASP.NET Core Web API**, **MySQL**, and **JWT authentication**.
 
 ---
 
-## ⚙️ Tech Stack  
-This project was built using modern frontend technologies to ensure **scalability, performance, and a great user experience**.  
+## ✨ Key Features
 
-🚀 **Frontend Development**  
-- ⚛ **React.js** - Component-based UI development  
-- 🌀 **Vite** - Fast and optimized development environment  
-- 📜 **TypeScript** - Type safety and better code maintainability  
-- 📄 **HTML5** - Semantic structure  
-- 🎨 **CSS3** - Styling and layout design  
-- 🎭 **Framer Motion** - Smooth animations  
-- 🎭 **Tailwind CSS** - Utility-first styling  
-
-🔧 **Other Technologies & Tools**  
-- 🌎 **Netlify** - Hosting and deployment  
-- 🛠 **ESLint & Prettier** - Code formatting and linting  
-- 🔍 **SEO Optimization** - Meta tags and performance improvements  
+| Feature | Description |
+|---|---|
+| 👨‍🎓 Student Management | Add, update, view, and manage student information |
+| 👨‍🏫 Teacher Management | Manage teacher profiles, schedules, and assigned subjects |
+| 🕒 Attendance Tracking | Mark and monitor student attendance records |
+| 📊 Marks & Grades | Enter marks and view student performance |
+| 🔐 JWT Authentication | Secure login using JSON Web Tokens |
+| 🛡️ Role-Based Access | Separate permissions for Admin, Teacher, and Student users |
+| 📝 Academic Requests | Students can submit academic-related requests |
+| 📢 Announcements | Admin can publish important notices |
+| 📈 Dashboard Analytics | View academic and administrative summaries |
+| ☁️ Cloud Deployment | Planned deployment using Vercel, VPS/Render, and AWS RDS |
 
 ---
 
-## 🏆 Event & Participation  
-This project was built as part of **Projections 2025**, my college’s annual tech fest. I participated in the **Web Wizards** event, where the challenge was to **design a complete school website** with a focus on UI/UX.  
+## 👥 User Modules
 
-🎭 **Event:** Web Wizards - Projections 2025  
-🏛 **College Tech Fest:** Projections 2025  
-🎨 **Task:** Build a stunning **frontend design** for a school website  
-🛠 **Category:** Web Design & Development  
+### 👨‍💼 Admin Module
 
----
+- Manage students
+- Manage teachers
+- Manage subjects and classes
+- Publish announcements
+- Generate reports
+- View dashboard analytics
 
-## 📢 Socials & Updates  
-🔗 **LinkedIn Post:** [Projections 2025 Event](https://www.linkedin.com/in/govindsrm/)  
+### 👨‍🏫 Teacher Module
 
+- Mark student attendance
+- Enter student marks
+- View weekly schedules
+- Manage student requests
 
----
+### 👨‍🎓 Student Module
 
-## 💡 Future Enhancements  
-While this is a **frontend-only design**, here are some future improvements that can be added:  
-🔹 **Convert to Full-Stack** - Implement backend with Node.js & Firebase  
-🔹 **Dynamic News & Announcements** - Fetch latest updates from a database  
-🔹 **Student & Teacher Login** - Authentication system for different user roles  
-🔹 **Interactive Contact Form** - Integrated with email notifications  
-🔹 **Accessibility Improvements** - Better support for screen readers and contrast adjustments  
-
----
-
-## 🎯 Conclusion
-This project was an exciting experience in designing a real-world school website. Web Wizards was a great opportunity to push my UI/UX skills, work with modern web tools, and create a professional-level design. I hope you find this project interesting! Feel free to ⭐ star this repository and contribute to future improvements. 🚀
+- View attendance
+- View marks and performance
+- Access weekly schedules
+- Submit academic requests
 
 ---
 
-## 🤝 Connect With Me
+## 🔐 Security Features
 
-**Linkedin:** [Profile](https://www.linkedin.com/in/govindsrm/)
+- JWT authentication
+- Role-based authorization
+- Protected REST APIs
+- Password encryption using BCrypt
+- Secure HTTPS communication
+
 ---
 
-## 📌 If you like this project, don't forget to ⭐ star the repo! 😊
+## 🛠️ Technology Stack
+
+| Category | Technology |
+|---|---|
+| 🎨 Frontend | React.js + Vite |
+| ⚙️ Backend |Spring Boot |
+| 🗄️ Database | MySQL |
+| 🔑 Authentication | JWT |
+| 🔒 Password Security | BCrypt |
+| 🧪 Testing Tools | Swagger, Postman, Browser Developer Tools |
+| ☁️ Deployment | Vercel, VPS/Render, AWS RDS |
+
+---
+
+## 🏗️ System Architecture
+
+```text
+React Frontend
+      ↓
+Spring Boot
+      ↓
+MySQL Database
+```
+
+---
+
+## 📂 Project Structure
+
+```text
+school-management-system
+│
+├── frontend
+│   ├── public
+│   ├── src
+│   ├── components
+│   ├── pages
+│   └── services
+│
+├── backend
+│   ├── Controllers
+│   ├── Models
+│   ├── Services
+│   ├── Repositories
+│   ├── DTOs
+│   └── Authentication
+│
+└── database
+```
+
+---
+
+## ⚡ Frontend Setup
+
+### 1. Navigate to the frontend folder
+
+```bash
+cd frontend
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the frontend
+
+```bash
+npm run dev
+```
+
+Frontend URL:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## ⚙️ Backend Setup
+
+### 1. Navigate to the backend folder
+
+```bash
+cd backend
+```
+
+### 2. Restore packages
+
+```bash
+dotnet restore
+```
+
+### 3. Run the backend
+
+```bash
+dotnet run
+```
+
+Backend URL:
+
+```text
+https://localhost:5001
+```
+
+---
+
+## 🗄️ Database Setup
+
+### 1. Create the database
+
+```sql
+CREATE DATABASE school_management;
+```
+
+### 2. Configure the connection string
+
+Update `appsettings.json`:
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "server=localhost;database=school_management;user=root;password=yourpassword"
+  }
+}
+```
+
+### 3. Run database migration
+
+```bash
+Add-Migration InitialCreate
+Update-Database
+```
+
+---
+
+## 🔑 Authentication Flow
+
+```text
+User Login
+    ↓
+Validate User Credentials
+    ↓
+Generate JWT Token
+    ↓
+Store Token on Client
+    ↓
+Access Protected APIs
+```
+
+---
+
+## 📊 Current Progress
+
+| Module | Status |
+|---|---|
+| Frontend Setup | ✅ Completed |
+| Backend Setup | ✅ Completed |
+| Database Setup | ✅ Completed |
+| Authentication | 🔄 In Progress |
+| Student Module | 🔄 In Progress |
+| Attendance Module | ⏳ Pending |
+| Deployment | ⏳ Pending |
+
+---
+
+## 🧪 Testing Tools
+
+- Swagger
+- Postman
+- Browser Developer Tools
+
+---
+
+## ☁️ Deployment Plan
+
+| Service | Platform |
+|---|---|
+| Frontend | Vercel |
+| Backend | VPS / Render |
+| Database | AWS RDS |
+
+---
+
+## 🔮 Future Enhancements
+
+- 📱 Mobile application
+- 👨‍👩‍👧 Parent portal
+- 🤖 AI-based performance analysis
+- 📩 SMS notifications
+- 📝 Online examination system
+- 💬 Real-time chat
+
+---
+
+## 🎯 Expected Benefits
+
+- Reduced paperwork
+- Faster academic operations
+- Improved communication
+- Better accessibility
+- Secure academic records
+- Cloud-based school management
+
+---
+
+## 👨‍💻 Author
+
+**Govind Sharma**  
+Internship Project — School Management System
+
+---
+
+## ⭐ Project Status
+
+🚧 **Currently Under Development**
+
+---
+
+## 📜 License
+
+This project is developed for educational and internship purposes.
