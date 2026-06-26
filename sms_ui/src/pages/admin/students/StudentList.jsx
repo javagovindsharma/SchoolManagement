@@ -135,7 +135,7 @@ export default function StudentList() {
                   <td><strong>{s.fullName}</strong></td>
                   <td>{s.email}</td>
                   <td>{s.phone}</td>
-                  <td>{s.className || '—'}</td>
+                  <td>{s.classEntity.className+"-"+s.classEntity.section  || '—'}</td>
                   <td>{s.academicYear || '—'}</td>
                   <td>
                     <span className={`badge ${s.status === 'Active' ? 'badge-green' : 'badge-red'}`}>

@@ -30,7 +30,7 @@ export default function TeacherEdit() {
       .then(res => {
         const t = res.data;
         setForm({
-          fullName: t.fullName || '',
+          name: t.name || '',
           email:    t.email    || '',
           phone:    t.phone    || '',
           gender:   t.gender   || '',
@@ -87,8 +87,8 @@ export default function TeacherEdit() {
 
             <div className="form-group">
               <label>Full Name *</label>
-              <input required value={form.fullName}
-                onChange={e => update('fullName', e.target.value)} />
+              <input required value={form.name}
+                onChange={e => update('name', e.target.value)} />
             </div>
 
             <div className="form-group">

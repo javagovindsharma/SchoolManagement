@@ -42,7 +42,7 @@ export default function StudentAdd() {
     try {
       await API.post('/students/with-account', {
         fullName: form.fullName, email: form.email, password: form.password,
-        phone: form.phone, gender: form.gender,
+        phone: form.phone, gender: form.gender,status: form.status,
         dateOfBirth: form.dateOfBirth || null, address: form.address,
         parentName: form.parentName, parentContact: form.parentContact,
         classId: form.classId ? parseInt(form.classId) : null,

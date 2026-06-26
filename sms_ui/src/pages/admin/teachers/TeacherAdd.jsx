@@ -40,7 +40,7 @@ export default function TeacherAdd() {
     setLoading(true); setError('');
     try {
       await API.post('/teachers/with-account', {
-        fullName: form.name, email: form.email, password: form.password,
+        name: form.name, email: form.email, password: form.password,
         phone: form.phone, gender: form.gender,
         subject: form.subject, address: form.address, status: form.status,
       });
@@ -68,14 +68,8 @@ export default function TeacherAdd() {
 
             <div className="form-group">
               <label>Full Name *</label>
-              <select required value={form.name} onChange={e => update('name', e.target.value)}>
-                <option value="">Select Teacher Name</option>
-                {teachers.map(teacher => (
-                  <option key={teacher.id} value={teacher.name || teacher.name}>
-                    {teacher.name || teacher.name}
-                  </option>
-                ))}
-              </select>
+               <input required type="text" placeholder="Govind Sharma" value={form.name} 
+                onChange={e => update('name', e.target.value)} />
             </div>
 
             <div className="form-group">
