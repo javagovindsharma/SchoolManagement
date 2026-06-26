@@ -34,8 +34,18 @@ export default function Login() {
         email: form.email,
         password: form.password
       });
-      login(res.data.data.user, res.data.data.token);
-      navigate(`/${res.data.data.user.role.toLowerCase()}/dashboard`);
+
+      const payload = res.data?.data ?? res.data;
+      const user = payload?.user ?? payload;
+      const token = payload?.token ?? res.data?.token;
+
+      if (!user || !token) {
+        throw new Error('Invalid login response');
+      }
+
+      login(user, token);
+      const rolePath = user.role?.toString().toLowerCase();
+      navigate(`/${rolePath}/dashboard`);
     } catch {
       setError(t('invalidLogin'));
     } finally {

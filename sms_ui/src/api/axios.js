@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-// ── Base URL points to your .NET backend ──────────────────────
-// Make sure your backend is running on http://localhost:5162
+// ── Base URL points to your Spring boot backend ──────────────────────
+// Make sure your backend is running on http://localhost:8080
 const API = axios.create({
-  baseURL: 'http://localhost:5162/api',
+  baseURL: 'http://localhost:8080/api',
   headers: {
     'Content-Type': 'application/json',
   },

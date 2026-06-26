@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import API from '../../../api/axios';
 import { useLanguage } from '../../../context/LanguageContext';
 
@@ -16,8 +17,11 @@ export default function ClassList() {
 
   return (
     <div>
-      <div className="page-header">
+      <div className="page-header" style={{ marginBottom: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h1>🏫 {t('classes')}</h1>
+        <Link to="/admin/classes/add" className="btn btn-primary">
+          ➕ Add Class
+        </Link>
       </div>
 
       {loading ? (

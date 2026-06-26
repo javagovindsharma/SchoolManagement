@@ -27,7 +27,7 @@ export default function TeacherList() {
     setLoading(true);
     const params = new URLSearchParams();
     if (search)                       params.append('search',  search);
-    if (filterStatus !== 'All')       params.append('status',  filterStatus);
+    if (filterStatus)       params.append('status',  filterStatus);
     if (filterSubject)                params.append('subject', filterSubject);
 
     API.get(`/teachers?${params.toString()}`)
@@ -117,7 +117,7 @@ export default function TeacherList() {
               {teachers.map((teacher, i) => (
                 <tr key={teacher.id}>
                   <td style={{ color: '#94a3b8' }}>{i + 1}</td>
-                  <td><strong>{teacher.fullName}</strong></td>
+                  <td><strong>{teacher.name}</strong></td>
                   <td>{teacher.email}</td>
                   <td>{teacher.phone || '—'}</td>
                   <td>

@@ -30,11 +30,7 @@ public class TeachersController {
 
     // GET /api/teachers
     @GetMapping
-    public ResponseEntity<?> getAll(
-            @RequestParam(required = false) String search,
-            @RequestParam(required = false) String status,
-            @RequestParam(required = false) String subject
-    ) {
+    public ResponseEntity<?> getAll(@RequestParam(required = false) String search,@RequestParam(required = false) String status,@RequestParam(required = false) String subject) {
 
         List<Teacher> teachers = teacherRepository.findAll();
 

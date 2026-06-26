@@ -115,7 +115,7 @@ export default function Sidebar() {
             fontWeight: '600',
             transition: 'background 0.2s',
           }}>
-            {language === 'en' ? '🇱🇰 සිංහල' : '🇬🇧 English'}
+            {language === 'en' ? '🇱🇰 हिन्दी' : '🇬🇧 English'}
           </button>
         </div>
 

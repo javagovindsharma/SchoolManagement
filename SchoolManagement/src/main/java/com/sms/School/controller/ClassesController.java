@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.*;
 
 @RestController
@@ -139,9 +138,7 @@ public class ClassesController {
 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> update(
-            @PathVariable Integer id,
-            @RequestBody ClassEntity dto) {
+    public ResponseEntity<?> update(@PathVariable Integer id,@RequestBody ClassEntity dto) {
 
         Optional<ClassEntity> optionalClass =
                 classRepository.findById(id);

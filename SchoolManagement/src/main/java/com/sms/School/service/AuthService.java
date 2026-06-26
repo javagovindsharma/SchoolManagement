@@ -3,7 +3,7 @@ package com.sms.school.service;
 import com.sms.school.dto.*;
 import com.sms.school.entity.User;
 import com.sms.school.repository.UserRepository;
-import com.sms.school.security.JwtService;
+import com.sms.school.config.JwtService;
 import org.springframework.stereotype.Service;
 
 @Service
