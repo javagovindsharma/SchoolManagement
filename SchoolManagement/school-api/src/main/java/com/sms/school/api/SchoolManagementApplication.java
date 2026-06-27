@@ -3,7 +3,7 @@ package com.sms.school.api;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = {"com.sms.school.api", "com.sms.school.common"})
+@SpringBootApplication(scanBasePackages = {"com.sms.school.api", "com.sms.school.common", "com.sms.school.rag"})
 public class SchoolManagementApplication {
 
 	public static void main(String[] args) {

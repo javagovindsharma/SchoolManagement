@@ -1,5 +1,6 @@
 package com.sms.school.common.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -28,5 +29,6 @@ public class ClassEntity {
             insertable = false,
             updatable = false
     )
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private Teacher teacher;
 }

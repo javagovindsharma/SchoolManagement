@@ -1,5 +1,7 @@
 package com.sms.school.common.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -40,9 +42,11 @@ public class Student {
 
     @ManyToOne
     @JoinColumn(name = "class_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private ClassEntity classEntity;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 }

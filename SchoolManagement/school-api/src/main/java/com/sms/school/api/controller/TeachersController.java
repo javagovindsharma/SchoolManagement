@@ -26,7 +26,6 @@ public class TeachersController {
 
     private final TeacherRepository teacherRepository;
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
 
     // GET /api/teachers
     @GetMapping
@@ -109,7 +108,7 @@ public class TeachersController {
         User user = new User();
         user.setName(dto.getName());
         user.setEmail(dto.getEmail());
-        user.setPassword(passwordEncoder.encode(dto.getPassword()));
+        user.setPassword(dto.getPassword());
         user.setRole(Role.TEACHER);
 
         userRepository.save(user);

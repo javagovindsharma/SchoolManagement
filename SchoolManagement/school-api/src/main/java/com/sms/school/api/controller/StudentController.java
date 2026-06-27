@@ -30,7 +30,6 @@ public class StudentController {
     private final UserRepository userRepository;
     private final ClassRepository classRepository;
 
-    private final BCryptPasswordEncoder passwordEncoder;
 
     @GetMapping
     public ResponseEntity<?> getAll(
@@ -107,7 +106,7 @@ public class StudentController {
         User user = new User();
         user.setName(dto.getFullName());
         user.setEmail(dto.getEmail());
-        user.setPassword(passwordEncoder.encode(dto.getPassword()));
+        user.setPassword(dto.getPassword());
         user.setRole(Role.STUDENT);
 
         userRepository.save(user);
