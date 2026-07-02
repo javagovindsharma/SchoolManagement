@@ -8,7 +8,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication(scanBasePackages = {
         "com.sms.school.api",
         "com.sms.school.common",
-        "com.sms.school.rag"
+        "com.sms.school.rag",
+        "com.sms.school.video",
 })
 @EnableJpaRepositories(basePackages = {
         "com.sms.school.rag.repository"
