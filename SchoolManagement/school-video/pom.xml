@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>school-video</artifactId>
+    <description>Video calling library module - WebRTC signaling, room management</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

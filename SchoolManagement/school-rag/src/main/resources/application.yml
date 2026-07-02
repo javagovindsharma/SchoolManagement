@@ -1,4 +1,8 @@
 spring:
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
   datasource:
     url: jdbc:mysql://localhost:3306/school_rag?useSSL=false&serverTimezone=UTC
     username: root
@@ -10,7 +14,7 @@ spring:
       base-url: http://localhost:11434
 
       chat:
-        model: llama3
+        model: llama3.2
         options:
           temperature: 0.7
 

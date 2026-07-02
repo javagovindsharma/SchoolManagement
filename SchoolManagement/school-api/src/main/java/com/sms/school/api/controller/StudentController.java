@@ -71,6 +71,12 @@ public class StudentController {
 
         return ResponseEntity.ok(student);
     }
+    @GetMapping("/by-user/{userId}")
+    public ResponseEntity<?> getByUserId(@PathVariable Long userId) {
+        return studentRepository.findByUserId(userId)
+                        .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 
     @GetMapping("/count")
     public ResponseEntity<Long> getCount() {

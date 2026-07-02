@@ -40,7 +40,7 @@ public class AuthService {
 
     public AuthResponse login(
             LoginRequest request) {
-
+        System.out.println("email"+ request.getEmail());
         User user =
                 repository.findByEmail(
                                 request.getEmail())

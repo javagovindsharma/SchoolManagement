@@ -27,6 +27,8 @@ public class SecurityConfig {
                 .cors(cors -> {})
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/ws/**").permitAll()
+                        .requestMatchers("/api/video/**").permitAll()
                         .requestMatchers("/api/rag/**").permitAll()
                         .anyRequest().authenticated())
                 .addFilterBefore(
