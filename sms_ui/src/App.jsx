@@ -1,101 +1,147 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
+import { Toaster } from 'react-hot-toast';
+
+// Layouts
+import PublicLayout from './layouts/PublicLayout';
+import ERPLayout from './layouts/ERPLayout';
 import ProtectedRoute from './components/ProtectedRoute';
-import Sidebar from './components/Sidebar';
 
-import Login from './pages/Login';
+// Public Website Pages
+import Homepage from './pages/public/Homepage';
+import About from './pages/public/About';
+import Academics from './pages/public/Academics';
+import Admissions from './pages/public/Admissions';
+import Achievements from './pages/public/Achievements';
+import Facilities from './pages/public/Facilities';
+import Gallery from './pages/public/Gallery';
+import Events from './pages/public/Events';
+import NewsPage from './pages/public/NewsPage';
+import Careers from './pages/public/Careers';
+import Branches from './pages/public/Branches';
+import Contact from './pages/public/Contact';
 
-// Admin pages
-import AdminDashboard from './pages/admin/AdminDashboard';
-import StudentList    from './pages/admin/students/StudentList';
-import StudentAdd     from './pages/admin/students/StudentAdd';
-import StudentEdit    from './pages/admin/students/StudentEdit';
-import TeacherList    from './pages/admin/teachers/TeacherList';
-import TeacherAdd     from './pages/admin/teachers/TeacherAdd';
-import ClassList      from './pages/admin/classes/ClassList';
-import ClassAdd       from './pages/admin/classes/ClassAdd';
-import ClassEdit      from './pages/admin/classes/ClassEdit';
-import SubjectList    from './pages/admin/subjects/SubjectList';
-import Announcements  from './pages/admin/announcements/Announcements';
-import Reports        from './pages/admin/reports/Reports';
+// Auth
+import Login from './pages/auth/Login';
 
-// Teacher pages
-import TeacherDashboard from './pages/teacher/TeacherDashboard';
-import Attendance       from './pages/teacher/Attendance';
-import Marks            from './pages/teacher/Marks';
-import Schedule         from './pages/teacher/Schedule';
-import Requests         from './pages/teacher/Requests';
+// Admin/Super Admin
+import AdminDashboard from './pages/erp/admin/AdminDashboard';
+import BranchManagement from './pages/erp/admin/BranchManagement';
+import UserManagement from './pages/erp/admin/UserManagement';
+import StudentManagement from './pages/erp/admin/StudentManagement';
+import StaffManagement from './pages/erp/admin/StaffManagement';
+import ClassManagement from './pages/erp/admin/ClassManagement';
+import SubjectManagement from './pages/erp/admin/SubjectManagement';
+import AcademicYears from './pages/erp/admin/AcademicYears';
 
-// Student pages
-import StudentDashboard from './pages/student/StudentDashboard';
-import MyAttendance     from './pages/student/MyAttendance';
-import MyMarks          from './pages/student/MyMarks';
-import MySchedule       from './pages/student/MySchedule';
-import MyRequests       from './pages/student/MyRequests';
+// Teacher Portal
+import TeacherDashboard from './pages/erp/teacher/TeacherDashboard';
+import TeacherAttendance from './pages/erp/teacher/TeacherAttendance';
+import TeacherMarks from './pages/erp/teacher/TeacherMarks';
+import TeacherSchedule from './pages/erp/teacher/TeacherSchedule';
+import TeacherAssignments from './pages/erp/teacher/TeacherAssignments';
 
-function Layout({ children }) {
-  return (
-    <div style={{ display: 'flex' }}>
-      <Sidebar />
-      <div className="main-content">{children}</div>
-    </div>
-  );
-}
+// Student Portal
+import StudentDashboard from './pages/erp/student/StudentDashboard';
+import StudentAttendance from './pages/erp/student/StudentAttendance';
+import StudentResults from './pages/erp/student/StudentResults';
+import StudentSchedule from './pages/erp/student/StudentSchedule';
+import StudentAssignments from './pages/erp/student/StudentAssignments';
 
-function AdminRoute({ children }) {
-  return <ProtectedRoute role="Admin"><Layout>{children}</Layout></ProtectedRoute>;
-}
-function TeacherRoute({ children }) {
-  return <ProtectedRoute role="Teacher"><Layout>{children}</Layout></ProtectedRoute>;
-}
-function StudentRoute({ children }) {
-  return <ProtectedRoute role="Student"><Layout>{children}</Layout></ProtectedRoute>;
-}
+// Parent Portal
+import ParentDashboard from './pages/erp/parent/ParentDashboard';
+import ParentAttendance from './pages/erp/parent/ParentAttendance';
+import ParentFees from './pages/erp/parent/ParentFees';
+import ParentResults from './pages/erp/parent/ParentResults';
+
+// Module Pages
+import FeesModule from './pages/erp/modules/FeesModule';
+import ExamModule from './pages/erp/modules/ExamModule';
+import HRModule from './pages/erp/modules/HRModule';
+import TransportModule from './pages/erp/modules/TransportModule';
+import LibraryModule from './pages/erp/modules/LibraryModule';
+import InventoryModule from './pages/erp/modules/InventoryModule';
+import CommunicationModule from './pages/erp/modules/CommunicationModule';
+import AdmissionModule from './pages/erp/modules/AdmissionModule';
 
 export default function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/"       element={<Navigate to="/login" />} />
-          <Route path="/login"  element={<Login />} />{/* Redirects for wrong URLs */}
-          <Route path="/students"  element={<Navigate to="/admin/students" />} />
-          <Route path="/teachers"  element={<Navigate to="/admin/teachers" />} />
-          <Route path="/classes"   element={<Navigate to="/admin/classes" />} />
-          <Route path="/subjects"  element={<Navigate to="/admin/subjects" />} />
-          <Route path="/dashboard" element={<Navigate to="/admin/dashboard" />} />
+    <ThemeProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          <Toaster position="top-right" />
+          <Routes>
+            {/* ========== PUBLIC WEBSITE ========== */}
+            <Route element={<PublicLayout />}>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/academics" element={<Academics />} />
+              <Route path="/admissions" element={<Admissions />} />
+              <Route path="/achievements" element={<Achievements />} />
+              <Route path="/facilities" element={<Facilities />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/events" element={<Events />} />
+              <Route path="/news" element={<NewsPage />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="/branches" element={<Branches />} />
+              <Route path="/contact" element={<Contact />} />
+            </Route>
 
+            {/* ========== AUTH ========== */}
+            <Route path="/login" element={<Login />} />
 
-          {/* Admin */}
-          <Route path="/admin/dashboard"     element={<AdminRoute><AdminDashboard /></AdminRoute>} />
-          <Route path="/admin/students"      element={<AdminRoute><StudentList /></AdminRoute>} />
-          <Route path="/admin/students/add"  element={<AdminRoute><StudentAdd /></AdminRoute>} />
-          <Route path="/admin/students/edit/:id" element={<AdminRoute><StudentEdit /></AdminRoute>} />
-          <Route path="/admin/teachers"      element={<AdminRoute><TeacherList /></AdminRoute>} />
-          <Route path="/admin/teachers/add"  element={<AdminRoute><TeacherAdd /></AdminRoute>} />
-          <Route path="/admin/classes"       element={<AdminRoute><ClassList /></AdminRoute>} />
-          <Route path="/admin/classes/add"   element={<AdminRoute><ClassAdd /></AdminRoute>} />
-          <Route path="/admin/classes/edit/:id" element={<AdminRoute><ClassEdit /></AdminRoute>} />
-          <Route path="/admin/subjects"      element={<AdminRoute><SubjectList /></AdminRoute>} />
-          <Route path="/admin/announcements" element={<AdminRoute><Announcements /></AdminRoute>} />
-          <Route path="/admin/reports"       element={<AdminRoute><Reports /></AdminRoute>} />
+            {/* ========== ERP PORTAL ========== */}
+            <Route element={<ProtectedRoute />}>
+              <Route element={<ERPLayout />}>
 
-          {/* Teacher */}
-          <Route path="/teacher/dashboard"  element={<TeacherRoute><TeacherDashboard /></TeacherRoute>} />
-          <Route path="/teacher/attendance" element={<TeacherRoute><Attendance /></TeacherRoute>} />
-          <Route path="/teacher/marks"      element={<TeacherRoute><Marks /></TeacherRoute>} />
-          <Route path="/teacher/schedule"   element={<TeacherRoute><Schedule /></TeacherRoute>} />
-          <Route path="/teacher/requests"   element={<TeacherRoute><Requests /></TeacherRoute>} />
+              {/* Admin / Super Admin / Branch Admin / Principal */}
+              <Route path="/erp/dashboard" element={<AdminDashboard />} />
+              <Route path="/erp/branches" element={<BranchManagement />} />
+              <Route path="/erp/users" element={<UserManagement />} />
+              <Route path="/erp/students" element={<StudentManagement />} />
+              <Route path="/erp/staff" element={<StaffManagement />} />
+              <Route path="/erp/classes" element={<ClassManagement />} />
+              <Route path="/erp/subjects" element={<SubjectManagement />} />
+              <Route path="/erp/academic-years" element={<AcademicYears />} />
 
-          {/* Student */}
-          <Route path="/student/dashboard"  element={<StudentRoute><StudentDashboard /></StudentRoute>} />
-          <Route path="/student/attendance" element={<StudentRoute><MyAttendance /></StudentRoute>} />
-          <Route path="/student/marks"      element={<StudentRoute><MyMarks /></StudentRoute>} />
-          <Route path="/student/schedule"   element={<StudentRoute><MySchedule /></StudentRoute>} />
-          <Route path="/student/requests"   element={<StudentRoute><MyRequests /></StudentRoute>} />
-          <Route path="*" element={<Navigate to="/login" />} />
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+              {/* Teacher Portal */}
+              <Route path="/erp/teacher/dashboard" element={<TeacherDashboard />} />
+              <Route path="/erp/teacher/attendance" element={<TeacherAttendance />} />
+              <Route path="/erp/teacher/marks" element={<TeacherMarks />} />
+              <Route path="/erp/teacher/schedule" element={<TeacherSchedule />} />
+              <Route path="/erp/teacher/assignments" element={<TeacherAssignments />} />
+
+              {/* Student Portal */}
+              <Route path="/erp/student/dashboard" element={<StudentDashboard />} />
+              <Route path="/erp/student/attendance" element={<StudentAttendance />} />
+              <Route path="/erp/student/results" element={<StudentResults />} />
+              <Route path="/erp/student/schedule" element={<StudentSchedule />} />
+              <Route path="/erp/student/assignments" element={<StudentAssignments />} />
+
+              {/* Parent Portal */}
+              <Route path="/erp/parent/dashboard" element={<ParentDashboard />} />
+              <Route path="/erp/parent/attendance" element={<ParentAttendance />} />
+              <Route path="/erp/parent/fees" element={<ParentFees />} />
+              <Route path="/erp/parent/results" element={<ParentResults />} />
+
+              {/* ERP Modules */}
+              <Route path="/erp/fees/*" element={<FeesModule />} />
+              <Route path="/erp/exams/*" element={<ExamModule />} />
+              <Route path="/erp/hr/*" element={<HRModule />} />
+              <Route path="/erp/transport" element={<TransportModule />} />
+              <Route path="/erp/library/*" element={<LibraryModule />} />
+              <Route path="/erp/inventory/*" element={<InventoryModule />} />
+              <Route path="/erp/communication/*" element={<CommunicationModule />} />
+              <Route path="/erp/admissions/*" element={<AdmissionModule />} />
+              </Route>
+            </Route>
+
+            {/* Fallback */}
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }

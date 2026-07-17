@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/school_db
+    username: postgres
+    password: postgres
+
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+
+      chat:
+        model: llama3
+        options:
+          temperature: 0.7
+
+      embedding:
+        model: nomic-embed-text
+
+logging:
+  level:
+    org.springframework.ai: INFO

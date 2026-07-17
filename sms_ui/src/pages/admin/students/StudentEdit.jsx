@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams  } from 'react-router-dom';
 import API from '../../../api/axios';
 import { useLanguage } from '../../../context/LanguageContext';
 
 export default function StudentAdd() {
   const navigate = useNavigate();
   const { t } = useLanguage();
-
+  const { id } = useParams();
   const [form, setForm] = useState({
     fullName: '', email: '', password: '', phone: '', gender: '',
     dateOfBirth: '', address: '', parentName: '', parentContact: '',
     status: 'Active', classId: '', academicYear: String(new Date().getFullYear()),
   });
-
   const [classes,        setClasses]        = useState([]);
+  const [student,        setStudent]        = useState([]);
   const [academicYears,  setAcademicYears]  = useState([]);
   const [success,        setSuccess]        = useState(false);
   const [error,          setError]          = useState('');
@@ -26,10 +26,33 @@ export default function StudentAdd() {
       .catch(() => setClasses([]))
       .finally(() => setLoadingClasses(false));
     const y = new Date().getFullYear();
+
+      API.get(`/students/${id}`)
+     .then(res => {
+    const s = res.data;
+
+    setForm({
+      fullName: s.fullName || "",
+      email: s.email || "",
+      password: "", // edit me usually blank rakhte hain
+      phone: s.phone || "",
+      gender: s.gender || "",
+      dateOfBirth: s.dateOfBirth || "",
+      address: s.address || "",
+      parentName: s.parentName || "",
+      parentContact: s.parentContact || "",
+      status: s.status || "Active",
+      classId: s.classEntity?.id || "",
+      academicYear: s.academicYear || ""
+    });
+  })
+      .catch(() => setStudent([]))
+      .finally(() => setLoadingClasses(false));
+
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setAcademicYears(Array.from({ length: 5 }, (_, i) => y - i));
   }, []);
-
+     
   const update = (field, value) => setForm(prev => ({ ...prev, [field]: value }));
 
   const handleSubmit = async (e) => {
@@ -40,9 +63,9 @@ export default function StudentAdd() {
     }
     setLoading(true); setError('');
     try {
-      await API.post('/students/with-account', {
+      await API.put(`/students/${id}`, {
         fullName: form.fullName, email: form.email, password: form.password,
-        phone: form.phone, gender: form.gender,
+        phone: form.phone, gender: form.gender,status: form.status,
         dateOfBirth: form.dateOfBirth || null, address: form.address,
         parentName: form.parentName, parentContact: form.parentContact,
         classId: form.classId ? parseInt(form.classId) : null,
@@ -58,7 +81,7 @@ export default function StudentAdd() {
   return (
     <div>
       <div className="page-header">
-        <h1>➕ {t('addStudentTitle') || 'Add Student'}</h1>
+        <h1>➕ {t('EditStudentTitle') || 'Edit Student'}</h1>
         <button className="btn btn-outline" onClick={() => navigate('/admin/students')}>← Back</button>
       </div>
 
@@ -94,8 +117,8 @@ export default function StudentAdd() {
 
             <div className="form-group">
               <label>Phone</label>
-              <input placeholder="077 123 4567" value={form.phone}
-                onChange={e => update('phone', e.target.value)} />
+              <input placeholder="077 123 4567" value={form.phone} maxLength={10} type='tel'
+                onChange={e => update('phone', e.target.value.replace(/\D/g, '').slice(0, 10))} />
             </div>
 
             <div className="form-group">
@@ -164,8 +187,8 @@ export default function StudentAdd() {
 
             <div className="form-group">
               <label>Parent Contact</label>
-              <input placeholder="077 987 6543" value={form.parentContact}
-                onChange={e => update('parentContact', e.target.value)} />
+              <input placeholder="077 987 6543" value={form.parentContact} maxLength={10} type='tel'
+                onChange={e => update('parentContact', e.target.value.replace(/\D/g, '').slice(0, 10))} />
             </div>
 
           </div>

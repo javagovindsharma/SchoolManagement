@@ -15,6 +15,9 @@ const roleConfig = {
       { path: '/admin/subjects',      label: 'Subjects',      icon: '📚', color: '#a78bfa' },
       { path: '/admin/announcements', label: 'Announcements', icon: '📢', color: '#fb923c' },
       { path: '/admin/reports',       label: 'Reports',       icon: '📊', color: '#22d3ee' },
+      { path: '/admin/books/upload', label: 'Upload Books',  icon: '📖', color: '#f59e0b' },
+      { path: '/admin/ai-chat',     label: 'AI Assistant',  icon: '🤖', color: '#8b5cf6' },
+      { path: '/admin/video-call',  label: 'Video Call',    icon: '📹', color: '#ef4444' },
     ]
   },
   Teacher: {
@@ -26,6 +29,8 @@ const roleConfig = {
       { path: '/teacher/marks',      label: 'Enter Marks',    icon: '📝', color: '#60a5fa' },
       { path: '/teacher/schedule',   label: 'My Schedule',    icon: '📅', color: '#fbbf24' },
       { path: '/teacher/requests',   label: 'View Requests',  icon: '📨', color: '#f472b6' },
+      { path: '/teacher/quizzes',   label: 'Quizzes',        icon: '📝', color: '#8b5cf6' },
+      { path: '/teacher/video-call', label: 'Video Call',    icon: '📹', color: '#ef4444' },
     ]
   },
   Student: {
@@ -37,6 +42,9 @@ const roleConfig = {
       { path: '/student/marks',      label: 'My Marks',       icon: '📝', color: '#60a5fa' },
       { path: '/student/schedule',   label: 'Class Schedule',  icon: '📅', color: '#fbbf24' },
       { path: '/student/requests',   label: 'My Requests',    icon: '📨', color: '#fb923c' },
+      { path: '/student/ai-chat',   label: 'AI Assistant',   icon: '🤖', color: '#8b5cf6' },
+      { path: '/student/quizzes',  label: 'My Quizzes',     icon: '📝', color: '#f472b6' },
+      { path: '/student/video-call', label: 'Video Call',   icon: '📹', color: '#ef4444' },
     ]
   }
 };
@@ -47,7 +55,8 @@ export default function Sidebar() {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
-  const config = roleConfig[user?.role] || roleConfig.Admin;
+  const roleKey = user?.role ? user.role.charAt(0).toUpperCase() + user.role.slice(1).toLowerCase() : 'Admin';
+  const config = roleConfig[roleKey] || roleConfig.Admin;
   const links  = config.links;
 
   const handleLogout = () => { logout(); navigate('/login'); setIsOpen(false); };

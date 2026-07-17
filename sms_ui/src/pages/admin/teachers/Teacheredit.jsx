@@ -9,7 +9,7 @@ export default function TeacherEdit() {
   const { t } = useLanguage();
 
   const [form, setForm] = useState({
-    fullName: '', email: '', phone: '',
+    fullName: '', email: '', mobile: '',
     gender: '', subject: '', address: '', status: 'Active',
   });
 
@@ -30,9 +30,9 @@ export default function TeacherEdit() {
       .then(res => {
         const t = res.data;
         setForm({
-          fullName: t.fullName || '',
+          name: t.name || '',
           email:    t.email    || '',
-          phone:    t.phone    || '',
+          mobile:    t.mobile    || '',
           gender:   t.gender   || '',
           subject:  t.subject  || '',
           address:  t.address  || '',
@@ -87,8 +87,8 @@ export default function TeacherEdit() {
 
             <div className="form-group">
               <label>Full Name *</label>
-              <input required value={form.fullName}
-                onChange={e => update('fullName', e.target.value)} />
+              <input required value={form.name}
+                onChange={e => update('name', e.target.value)} />
             </div>
 
             <div className="form-group">
@@ -98,9 +98,9 @@ export default function TeacherEdit() {
             </div>
 
             <div className="form-group">
-              <label>Phone</label>
-              <input value={form.phone}
-                onChange={e => update('phone', e.target.value)} />
+              <label>Mobile</label>
+              <input value={form.mobile} maxLength={10} type='tel'
+                onChange={e => update('mobile', e.target.value.replace(/\D/g, '').slice(0, 10))} />
             </div>
 
             <div className="form-group">

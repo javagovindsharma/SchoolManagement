@@ -105,7 +105,7 @@ export default function TeacherList() {
                 <th>#</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Phone</th>
+                <th>Mobile</th>
                 <th>Subject</th>
                 <th>Gender</th>
                 <th>Status</th>
@@ -119,7 +119,7 @@ export default function TeacherList() {
                   <td style={{ color: '#94a3b8' }}>{i + 1}</td>
                   <td><strong>{teacher.name}</strong></td>
                   <td>{teacher.email}</td>
-                  <td>{teacher.phone || '—'}</td>
+                  <td>{teacher.mobile || '—'}</td>
                   <td>
                     <span className="badge badge-gray">{teacher.subject || '—'}</span>
                   </td>
